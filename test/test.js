@@ -29,7 +29,7 @@ var NINF = require( '@stdlib/constants-float64-ninf' );
 var isnan = require( '@stdlib/math-base-assert-is-nan' );
 var Float64Array = require( '@stdlib/array-float64' );
 var FLOAT64_SMALLEST_NORMAL = require( '@stdlib/constants-float64-smallest-normal' );
-var FLOAT64_SMALLEST_SUBNORMAL = require( '@stdlib/constants-float64-smallest-subnormal' ); -- eslint-disable-line id-length
+var FLOAT64_SMALLEST_SUBNORMAL = require( '@stdlib/constants-float64-smallest-subnormal' ); // eslint-disable-line id-length
 var normalize = require( './../lib' );
 
 
