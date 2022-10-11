@@ -24,29 +24,38 @@ limitations under the License.
 
 > Return a normal number `y` and exponent `exp` satisfying `x = y * 2^exp`.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/number-float64-base-normalize
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import normalize from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@esm/index.mjs';
+var normalize = require( '@stdlib/number-float64-base-normalize' );
 ```
 
-#### normalize( \[out,] x )
+#### normalize( x )
 
 Returns a normal number `y` and exponent `exp` satisfying `x = y * 2^exp`.
 
 ```javascript
-var out = normalize( 3.14e-319 );
-// returns [ 1.4141234400356668e-303, -52 ]
-```
-
-By default, the function returns `y` and `exp` as a two-element `array`.
-
-```javascript
-import pow from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-pow@esm/index.mjs';
+var pow = require( '@stdlib/math-base-special-pow' );
 
 var out = normalize( 3.14e-319 );
 // returns [ 1.4141234400356668e-303, -52 ]
@@ -55,20 +64,6 @@ var y = out[ 0 ];
 var exp = out[ 1 ];
 
 var bool = ( y*pow(2.0, exp) === 3.14e-319 );
-// returns true
-```
-
-To avoid unnecessary memory allocation, the function supports providing an output (destination) object.
-
-```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
-
-var out = new Float64Array( 2 );
-
-var v = normalize( out, 3.14e-319 );
-// returns <Float64Array>[ 1.4141234400356668e-303, -52 ]
-
-var bool = ( v === out );
 // returns true
 ```
 
@@ -82,8 +77,8 @@ var out = normalize( 0.0 );
 If `x` is either positive or negative `infinity` or `NaN`,
 
 ```javascript
-import PINF from 'https://cdn.jsdelivr.net/gh/stdlib-js/constants-float64-pinf@esm/index.mjs';
-import NINF from 'https://cdn.jsdelivr.net/gh/stdlib-js/constants-float64-ninf@esm/index.mjs';
+var PINF = require( '@stdlib/constants-float64-pinf' );
+var NINF = require( '@stdlib/constants-float64-ninf' );
 
 var out = normalize( PINF );
 // returns [ Infinity, 0 ]
@@ -93,6 +88,22 @@ out = normalize( NINF );
 
 out = normalize( NaN );
 // returns [ NaN, 0 ]
+```
+
+#### normalize.assign( x, out, stride, offset )
+
+Returns a normal number `y` and exponent `exp` satisfying `x = y * 2^exp` and assigns results to a provided output array.
+
+```javascript
+var Float64Array = require( '@stdlib/array-float64' );
+
+var out = new Float64Array( 2 );
+
+var v = normalize.assign( 3.14e-319, out, 1, 0);
+// returns <Float64Array>[ 1.4141234400356668e-303, -52 ]
+
+var bool = ( v === out );
+// returns true
 ```
 
 </section>
@@ -105,16 +116,11 @@ out = normalize( NaN );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@esm/index.mjs';
-import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@esm/index.mjs';
-import pow from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-pow@esm/index.mjs';
-import normalize from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@esm/index.mjs';
+```javascript
+var randu = require( '@stdlib/random-base-randu' );
+var round = require( '@stdlib/math-base-special-round' );
+var pow = require( '@stdlib/math-base-special-pow' );
+var normalize = require( '@stdlib/number-float64-base-normalize' );
 
 var frac;
 var exp;
@@ -138,10 +144,6 @@ for ( i = 0; i < 100; i++ ) {
 
     console.log( '%d = %d * 2^%d = %d', x, v[0], v[1], v[0]*pow(2.0, v[1]) );
 }
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -165,7 +167,7 @@ for ( i = 0; i < 100; i++ ) {
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
