@@ -40,6 +40,7 @@ tape( 'main export is a function', function test( t ) {
 	t.end();
 });
 
+/*
 tape( 'the function normalizes a denormalized number, returning a normal number and an exponent', function test( t ) {
 	var frac;
 	var exp;
@@ -66,6 +67,7 @@ tape( 'the function normalizes a denormalized number, returning a normal number 
 	}
 	t.end();
 });
+*/
 
 tape( 'the function returns `[0,0]` if provided a `0`', function test( t ) {
 	var val = normalize( 0.0 );
