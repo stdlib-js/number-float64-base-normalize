@@ -24,30 +24,20 @@ limitations under the License.
 
 > Return a normal number `y` and exponent `exp` satisfying `x = y * 2^exp`.
 
-<section class="installation">
 
-## Installation
-
-```bash
-npm install @stdlib/number-float64-base-normalize
-```
-
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
--   If you are using Deno, visit the [`deno` branch][deno-url].
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-var normalize = require( '@stdlib/number-float64-base-normalize' );
+import normalize from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@deno/mod.js';
+```
+
+You can also import the following named exports from the package:
+
+```javascript
+import { assign } from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@deno/mod.js';
 ```
 
 #### normalize( x )
@@ -55,7 +45,7 @@ var normalize = require( '@stdlib/number-float64-base-normalize' );
 Returns a normal number `y` and exponent `exp` satisfying `x = y * 2^exp`.
 
 ```javascript
-var pow = require( '@stdlib/math-base-special-pow' );
+import pow from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-pow@deno/mod.js';
 
 var out = normalize( 3.14e-319 );
 // returns [ 1.4141234400356668e-303, -52 ]
@@ -77,8 +67,8 @@ var out = normalize( 0.0 );
 If `x` is either positive or negative `infinity` or `NaN`,
 
 ```javascript
-var PINF = require( '@stdlib/constants-float64-pinf' );
-var NINF = require( '@stdlib/constants-float64-ninf' );
+import PINF from 'https://cdn.jsdelivr.net/gh/stdlib-js/constants-float64-pinf@deno/mod.js';
+import NINF from 'https://cdn.jsdelivr.net/gh/stdlib-js/constants-float64-ninf@deno/mod.js';
 
 var out = normalize( PINF );
 // returns [ Infinity, 0 ]
@@ -95,7 +85,7 @@ out = normalize( NaN );
 Returns a normal number `y` and exponent `exp` satisfying `x = y * 2^exp` and assigns results to a provided output array.
 
 ```javascript
-var Float64Array = require( '@stdlib/array-float64' );
+import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
 
 var out = new Float64Array( 2 );
 
@@ -117,10 +107,10 @@ var bool = ( v === out );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var randu = require( '@stdlib/random-base-randu' );
-var round = require( '@stdlib/math-base-special-round' );
-var pow = require( '@stdlib/math-base-special-pow' );
-var normalize = require( '@stdlib/number-float64-base-normalize' );
+import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@deno/mod.js';
+import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@deno/mod.js';
+import pow from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-pow@deno/mod.js';
+import normalize from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@deno/mod.js';
 
 var frac;
 var exp;
@@ -167,7 +157,7 @@ for ( i = 0; i < 100; i++ ) {
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
