@@ -42,13 +42,13 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import normalize from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@esm/index.mjs';
+import normalize from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@v0.1.1-esm/index.mjs';
 ```
 
 You can also import the following named exports from the package:
 
 ```javascript
-import { assign } from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@esm/index.mjs';
+import { assign } from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@v0.1.1-esm/index.mjs';
 ```
 
 #### normalize( x )
@@ -126,7 +126,7 @@ var bool = ( v === out );
 import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@esm/index.mjs';
 import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-uniform@esm/index.mjs';
 import pow from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-pow@esm/index.mjs';
-import normalize from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@esm/index.mjs';
+import normalize from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@v0.1.1-esm/index.mjs';
 
 var frac;
 var exp;
