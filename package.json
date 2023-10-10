@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/number-float64-base-normalize",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Return a normal number `y` and exponent `exp` satisfying `x = y * 2^exp`.",
   "license": "Apache-2.0",
   "author": {
@@ -42,13 +42,13 @@
     "@stdlib/constants-float64-smallest-normal": "^0.1.1",
     "@stdlib/math-base-assert-is-infinite": "^0.1.1",
     "@stdlib/math-base-assert-is-nan": "^0.1.1",
-    "@stdlib/math-base-special-abs": "^0.1.0",
+    "@stdlib/math-base-special-abs": "^0.1.1",
     "@stdlib/types": "^0.1.0",
     "@stdlib/utils-define-nonenumerable-read-only-property": "^0.1.1",
     "@stdlib/utils-library-manifest": "^0.1.1"
   },
   "devDependencies": {
-    "@stdlib/array-float64": "^0.1.0",
+    "@stdlib/array-float64": "^0.1.1",
     "@stdlib/assert-has-own-property": "^0.1.1",
     "@stdlib/assert-is-array": "^0.1.1",
     "@stdlib/assert-is-float64array": "^0.1.1",
