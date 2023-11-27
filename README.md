@@ -259,6 +259,12 @@ int main( void ) {
 
 <section class="related">
 
+* * *
+
+## See Also
+
+-   <span class="package-name">[`@stdlib/number-float32/base/normalize`][@stdlib/number/float32/base/normalize]</span><span class="delimiter">: </span><span class="description">return a normal number `y` and exponent `exp` satisfying `x = y \* 2^exp`.</span>
+
 </section>
 
 <!-- /.related -->
@@ -331,6 +337,12 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 [branches-url]: https://github.com/stdlib-js/number-float64-base-normalize/blob/main/branches.md
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/number-float64-base-normalize/main/LICENSE
+
+<!-- <related-links> -->
+
+[@stdlib/number/float32/base/normalize]: https://github.com/stdlib-js/number-float32-base-normalize
+
+<!-- </related-links> -->
 
 </section>
 
