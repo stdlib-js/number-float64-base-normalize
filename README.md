@@ -35,25 +35,32 @@ limitations under the License.
 
 > Return a normal number `y` and exponent `exp` satisfying `x = y * 2^exp`.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/number-float64-base-normalize
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import normalize from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@esm/index.mjs';
-```
-The previous example will load the latest bundled code from the esm branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/number-float64-base-normalize/tags). For example,
-
-```javascript
-import normalize from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@v0.2.3-esm/index.mjs';
-```
-
-You can also import the following named exports from the package:
-
-```javascript
-import { assign } from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@esm/index.mjs';
+var normalize = require( '@stdlib/number-float64-base-normalize' );
 ```
 
 #### normalize( x )
@@ -61,7 +68,7 @@ import { assign } from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-bas
 Returns a normal number `y` and exponent `exp` satisfying `x = y * 2^exp`.
 
 ```javascript
-import pow from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-pow@esm/index.mjs';
+var pow = require( '@stdlib/math-base-special-pow' );
 
 var out = normalize( 3.14e-319 );
 // returns [ 1.4141234400356668e-303, -52 ]
@@ -83,8 +90,8 @@ var out = normalize( 0.0 );
 If `x` is either positive or negative `infinity` or `NaN`,
 
 ```javascript
-import PINF from 'https://cdn.jsdelivr.net/gh/stdlib-js/constants-float64-pinf@esm/index.mjs';
-import NINF from 'https://cdn.jsdelivr.net/gh/stdlib-js/constants-float64-ninf@esm/index.mjs';
+var PINF = require( '@stdlib/constants-float64-pinf' );
+var NINF = require( '@stdlib/constants-float64-ninf' );
 
 var out = normalize( PINF );
 // returns [ Infinity, 0 ]
@@ -101,7 +108,7 @@ out = normalize( NaN );
 Returns a normal number `y` and exponent `exp` satisfying `x = y * 2^exp` and assigns results to a provided output array.
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
+var Float64Array = require( '@stdlib/array-float64' );
 
 var out = new Float64Array( 2 );
 
@@ -122,16 +129,11 @@ var bool = ( v === out );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@esm/index.mjs';
-import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-uniform@esm/index.mjs';
-import pow from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-pow@esm/index.mjs';
-import normalize from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@esm/index.mjs';
+```javascript
+var discreteUniform = require( '@stdlib/random-base-discrete-uniform' );
+var randu = require( '@stdlib/random-base-uniform' );
+var pow = require( '@stdlib/math-base-special-pow' );
+var normalize = require( '@stdlib/number-float64-base-normalize' );
 
 var frac;
 var exp;
@@ -155,10 +157,6 @@ for ( i = 0; i < 100; i++ ) {
 
     console.log( '%d = %d * 2^%d = %d', x, v[0], v[1], v[0]*pow(2.0, v[1]) );
 }
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -167,7 +165,97 @@ for ( i = 0; i < 100; i++ ) {
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/number/float64/base/normalize.h"
+```
+
+#### stdlib_base_float64_normalize( x, \*y, \*exp )
+
+Returns a normal number `y` and exponent `exp` satisfying `x = y * 2^exp`.
+
+```c
+#include <stdint.h>
+
+double y;
+int32_t exp;
+
+stdlib_base_float64_normalize( 3.14, &y, &exp );
+```
+
+The function accepts the following arguments:
+
+-   **x**: `[in] double` input value.
+-   **y**: `[out] double*` destination for normal number.
+-   **exp**: `[out] int32_t*` destination for exponent.
+
+```c
+void stdlib_base_float64_normalize( const double x, double *y, int32_t *exp );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/number/float64/base/normalize.h"
+#include <stdint.h>
+#include <stdio.h>
+#include <inttypes.h>
+
+int main( void ) {
+    double x[] = { 1.0, 3.14, 0.0, -0.0, 3.14e-308, 3.14e308, 1.0/0.0, 0.0/0.0 };
+    int32_t exp;
+    double y;
+    int i;
+
+    for ( i = 0; i < 8; i++ ) {
+        stdlib_base_float64_normalize( x[ i ], &y, &exp );
+        printf( "%lf => y: %lf, exp: %" PRId32 "\n", x[ i ], y, exp );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -192,7 +280,7 @@ for ( i = 0; i < 100; i++ ) {
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -222,8 +310,8 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 [npm-image]: http://img.shields.io/npm/v/@stdlib/number-float64-base-normalize.svg
 [npm-url]: https://npmjs.org/package/@stdlib/number-float64-base-normalize
 
-[test-image]: https://github.com/stdlib-js/number-float64-base-normalize/actions/workflows/test.yml/badge.svg?branch=v0.2.3
-[test-url]: https://github.com/stdlib-js/number-float64-base-normalize/actions/workflows/test.yml?query=branch:v0.2.3
+[test-image]: https://github.com/stdlib-js/number-float64-base-normalize/actions/workflows/test.yml/badge.svg?branch=main
+[test-url]: https://github.com/stdlib-js/number-float64-base-normalize/actions/workflows/test.yml?query=branch:main
 
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/number-float64-base-normalize/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/number-float64-base-normalize?branch=main
@@ -257,7 +345,7 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/number/float32/base/normalize]: https://github.com/stdlib-js/number-float32-base-normalize/tree/esm
+[@stdlib/number/float32/base/normalize]: https://github.com/stdlib-js/number-float32-base-normalize
 
 <!-- </related-links> -->
 
