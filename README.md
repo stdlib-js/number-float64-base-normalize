@@ -42,13 +42,13 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import normalize from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@deno/mod.js';
+import normalize from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@v0.2.4-deno/mod.js';
 ```
 
 You can also import the following named exports from the package:
 
 ```javascript
-import { assign } from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@deno/mod.js';
+import { assign } from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@v0.2.4-deno/mod.js';
 ```
 
 #### normalize( x )
@@ -121,7 +121,7 @@ var bool = ( v === out );
 import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@deno/mod.js';
 import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-uniform@deno/mod.js';
 import pow from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-pow@deno/mod.js';
-import normalize from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@deno/mod.js';
+import normalize from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@v0.2.4-deno/mod.js';
 
 var frac;
 var exp;
