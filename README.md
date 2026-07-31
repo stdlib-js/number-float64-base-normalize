@@ -35,32 +35,38 @@ limitations under the License.
 
 > Return a normal number `y` and exponent `exp` satisfying `x = y * 2^exp`.
 
-<section class="installation">
 
-## Installation
-
-```bash
-npm install @stdlib/number-float64-base-normalize
-```
-
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
--   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
-
-</section>
 
 <section class="usage">
 
 ## Usage
 
+To use in Observable,
+
 ```javascript
-var normalize = require( '@stdlib/number-float64-base-normalize' );
+normalize = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@umd/browser.js' )
+```
+
+To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
+
+```javascript
+var normalize = require( 'path/to/vendor/umd/number-float64-base-normalize/index.js' )
+```
+
+To include the bundle in a webpage,
+
+```html
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@umd/browser.js"></script>
+```
+
+If no recognized module system is present, access bundle contents via the global scope:
+
+```html
+<script type="text/javascript">
+(function () {
+    window.normalize;
+})();
+</script>
 ```
 
 #### normalize( x )
@@ -129,11 +135,16 @@ var bool = ( v === out );
 
 <!-- eslint no-undef: "error" -->
 
-```javascript
-var discreteUniform = require( '@stdlib/random-base-discrete-uniform' );
-var randu = require( '@stdlib/random-base-uniform' );
-var pow = require( '@stdlib/math-base-special-pow' );
-var normalize = require( '@stdlib/number-float64-base-normalize' );
+```html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-uniform@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-pow@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-normalize@umd/browser.js"></script>
+<script type="text/javascript">
+(function () {
 
 var frac;
 var exp;
@@ -157,6 +168,11 @@ for ( i = 0; i < 100; i++ ) {
 
     console.log( '%d = %d * 2^%d = %d', x, v[0], v[1], v[0]*pow(2.0, v[1]) );
 }
+
+})();
+</script>
+</body>
+</html>
 ```
 
 </section>
@@ -165,97 +181,7 @@ for ( i = 0; i < 100; i++ ) {
 
 <!-- C interface documentation. -->
 
-* * *
 
-<section class="c">
-
-## C APIs
-
-<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
-
-<section class="intro">
-
-</section>
-
-<!-- /.intro -->
-
-<!-- C usage documentation. -->
-
-<section class="usage">
-
-### Usage
-
-```c
-#include "stdlib/number/float64/base/normalize.h"
-```
-
-#### stdlib_base_float64_normalize( x, \*y, \*exp )
-
-Returns a normal number `y` and exponent `exp` satisfying `x = y * 2^exp`.
-
-```c
-#include <stdint.h>
-
-double y;
-int32_t exp;
-
-stdlib_base_float64_normalize( 3.14, &y, &exp );
-```
-
-The function accepts the following arguments:
-
--   **x**: `[in] double` input value.
--   **y**: `[out] double*` destination for normal number.
--   **exp**: `[out] int32_t*` destination for exponent.
-
-```c
-void stdlib_base_float64_normalize( const double x, double *y, int32_t *exp );
-```
-
-</section>
-
-<!-- /.usage -->
-
-<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
-
-<section class="notes">
-
-</section>
-
-<!-- /.notes -->
-
-<!-- C API usage examples. -->
-
-<section class="examples">
-
-### Examples
-
-```c
-#include "stdlib/number/float64/base/normalize.h"
-#include <stdint.h>
-#include <stdio.h>
-#include <inttypes.h>
-
-int main( void ) {
-    double x[] = { 1.0, 3.14, 0.0, -0.0, 3.14e-308, 3.14e308, 1.0/0.0, 0.0/0.0 };
-    int32_t exp;
-    double y;
-    int i;
-
-    for ( i = 0; i < 8; i++ ) {
-        stdlib_base_float64_normalize( x[ i ], &y, &exp );
-        printf( "%lf => y: %lf, exp: %" PRId32 "\n", x[ i ], y, exp );
-    }
-}
-```
-
-</section>
-
-<!-- /.examples -->
-
-</section>
-
-<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -345,7 +271,7 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/number/float32/base/normalize]: https://github.com/stdlib-js/number-float32-base-normalize
+[@stdlib/number/float32/base/normalize]: https://github.com/stdlib-js/number-float32-base-normalize/tree/umd
 
 <!-- </related-links> -->
 
