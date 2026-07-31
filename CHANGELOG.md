@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-07-08)
+## Unreleased (2026-07-31)
 
 <section class="commits">
 
@@ -12,6 +12,7 @@
 
 <details>
 
+-   [`a669750`](https://github.com/stdlib-js/stdlib/commit/a6697506a4937b6525520ced778c2e37c1ae714f) - **bench:** refactor C benchmarks to use pre-computed values [(#13798)](https://github.com/stdlib-js/stdlib/pull/13798) _(by Nakul Krishnakumar)_
 -   [`fe2eec4`](https://github.com/stdlib-js/stdlib/commit/fe2eec4417d858b83b208929a4bbac3d9d236fa4) - **bench:** refactor to use string interpolation in `number` [(#11603)](https://github.com/stdlib-js/stdlib/pull/11603) _(by Karan Anand)_
 
 </details>
@@ -24,9 +25,10 @@
 
 ### Contributors
 
-A total of 1 person contributed to this release. Thank you to this contributor:
+A total of 2 people contributed to this release. Thank you to the following contributors:
 
 -   Karan Anand
+-   Nakul Krishnakumar
 
 </section>
 
